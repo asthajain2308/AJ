@@ -1,6 +1,13 @@
+
+Astha Jain <asthajain.2308@gmail.com>
+12:29 AM (0 minutes ago)
+to me
+
 <!DOCTYPE html>
+
 <html>
 <head>
+<meta charset="UTF-8">
 <title>Valentine</title>
 
 <style>
@@ -8,7 +15,8 @@ body{
 background:#ffd6e7;
 font-family:Arial, sans-serif;
 text-align:center;
-padding-top:100px;
+padding-top:120px;
+overflow:hidden;
 }
 
 h1{
@@ -16,33 +24,36 @@ color:#d1005c;
 }
 
 button{
-padding:12px 25px;
-font-size:18px;
 border:none;
-border-radius:10px;
-margin:10px;
+border-radius:12px;
 cursor:pointer;
+margin:10px;
+transition:0.3s;
 }
 
 #yes{
 background:#ff4d88;
 color:white;
+font-size:20px;
+padding:12px 28px;
 }
 
 #no{
 background:#e0e0e0;
+font-size:18px;
+padding:12px 25px;
+position:relative;
 }
 
 .heart{
 position:fixed;
-color:red;
-font-size:24px;
-animation: float 3s linear infinite;
+font-size:26px;
+animation:float 3s linear infinite;
 }
 
 @keyframes float{
 from{transform:translateY(0)}
-to{transform:translateY(-800px)}
+to{transform:translateY(-900px)}
 }
 </style>
 
@@ -52,8 +63,7 @@ to{transform:translateY(-800px)}
 
 <h1 id="question">Palash, will you be my Valentine? ❤️</h1>
 
-<button id="yes">Yes ❤️</button>
-<button id="no">No</button>
+<button id="yes">Yes ❤️</button> <button id="no">No</button>
 
 <script>
 
@@ -62,60 +72,15 @@ let messages = [
 "Think again 😌",
 "Really sure? ❤️",
 "Last chance 😜",
-"I'll be sad if you click no 💔"
+"I'll be sad if you click no 💔",
+"You know you want to say YES 😏"
 ];
 
 let index = 0;
-let yesSize = 18;
+let yesSize = 20;
+let noSize = 18;
 
 const noBtn = document.getElementById("no");
 const yesBtn = document.getElementById("yes");
-const question = document.getElementById("question");
+const questi
 
-
-noBtn.addEventListener("mouseover", function(){
-
-const x = Math.random() * window.innerWidth * 0.8;
-const y = Math.random() * window.innerHeight * 0.8;
-
-noBtn.style.position="absolute";
-noBtn.style.left=x+"px";
-noBtn.style.top=y+"px";
-});
-
-
-noBtn.addEventListener("click", function(){
-
-question.innerText = messages[index % messages.length];
-index++;
-
-yesSize += 8;
-yesBtn.style.fontSize = yesSize + "px";
-});
-
-
-yesBtn.addEventListener("click", function(){
-
-question.innerText="YAY!! I knew you'd say YES ❤️🥰";
-
-for(let i=0;i<30;i++){
-let heart=document.createElement("div");
-heart.className="heart";
-heart.innerHTML="❤️";
-
-heart.style.left=Math.random()*100+"vw";
-heart.style.top="90vh";
-
-document.body.appendChild(heart);
-
-setTimeout(()=>{
-heart.remove();
-},3000);
-}
-
-});
-
-</script>
-
-</body>
-</html>
